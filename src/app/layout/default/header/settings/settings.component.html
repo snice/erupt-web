@@ -22,6 +22,11 @@
                (ngModelChange)="toggleDark(layout.dark)"></nz-switch>
 </div>
 <div class="setting-item">
+    <span>{{'setting.micro' | translate}}</span>
+    <nz-switch nzSize="small" [(ngModel)]="isMicroApp"
+               (ngModelChange)="toggleMicroApp(isMicroApp)"></nz-switch>
+</div>
+<div class="setting-item">
     <span>{{'setting.clear-cache' | translate}}</span>
     <button nz-button [nzSize]="'small'" (click)="clear()">{{'setting.clear' | translate}}</button>
 </div>

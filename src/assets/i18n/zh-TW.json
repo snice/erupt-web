@@ -81,6 +81,7 @@
   "setting.dark": "夜間模式",
   "setting.clear-cache": "清理本地緩存",
   "setting.clear": "清理",
+  "setting.micro": "微前端(Beta)",
   "setting.confirm": "確認要清理所有的本地緩存嗎 ？",
   "login_expire.tip": "登錄狀態已過期，您可以繼續留在該頁面，或者重新登錄？",
   "login_expire.retry": "重新登錄",

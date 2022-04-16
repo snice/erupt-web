@@ -3,6 +3,7 @@ import {DataService} from "@shared/service/data.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {SettingsService} from "@delon/theme";
+import { StatusService } from '@shared/service/status.service';
 
 @Component({
     selector: 'app-tpl',
@@ -23,6 +24,7 @@ export class TplComponent implements OnInit, OnDestroy {
     private router$: Subscription;
 
     constructor(private dataService: DataService,
+                private statusService: StatusService,
                 public settingSrv: SettingsService,
                 public route: ActivatedRoute) {
     }
@@ -30,6 +32,7 @@ export class TplComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.router$ = this.route.params.subscribe((params) => {
             this.name = params.name;
+            if(this.statusService.isMicroApp) this.renderType = 'micro-app';
             this.url = this.dataService.getEruptTpl(params.name);
             if (this.renderType === 'micro-app') {
                 this.url = window.location.origin + window.location.pathname + this.url;
