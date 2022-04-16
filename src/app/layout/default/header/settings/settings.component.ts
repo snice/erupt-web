@@ -4,6 +4,7 @@ import {ReuseTabService} from "@delon/abc";
 import {bootloader} from "@angularclass/hmr";
 import {NzMessageService, NzModalService} from "ng-zorro-antd";
 import {I18NService} from "@core";
+import { StatusService } from '@shared/service/status.service';
 
 @Component({
     selector: 'erupt-settings',
@@ -13,11 +14,15 @@ import {I18NService} from "@core";
 })
 export class SettingsComponent implements OnInit {
 
+    isMicroApp: boolean = false;
+
     constructor(private settingSrv: SettingsService,
                 private confirmServ: NzModalService,
                 private messageServ: NzMessageService,
                 @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
-                private reuseTabService: ReuseTabService) {
+                private reuseTabService: ReuseTabService,
+                private statusService: StatusService) {
+        this.isMicroApp = this.statusService.isMicroApp;
     }
 
     ngOnInit() {
@@ -51,6 +56,10 @@ export class SettingsComponent implements OnInit {
         } else {
             document.body.className = "";
         }
+    }
+
+    toggleMicroApp(value: boolean) {
+        this.statusService.isMicroApp = value;
     }
 
     clear() {

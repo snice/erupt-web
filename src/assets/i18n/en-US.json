@@ -80,6 +80,7 @@
   "setting.dark": "Dark mode",
   "setting.clear-cache": "Clear Local Cache",
   "setting.clear": "Clear",
+  "setting.micro": "MicroApp(Beta)",
   "setting.confirm": "Are you sure you want to clean up all local caches?",
   "login_expire.tip": "Login status has expired. Can you stay on the page or log in again?",
   "login_expire.retry": "login again",
